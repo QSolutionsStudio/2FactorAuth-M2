@@ -1,0 +1,13 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Backend\App\AbstractAction">
+        <plugin name="googleAuth" type="QSS\GoogleAuth\App\Action\Plugin\Authentication" sortOrder="1" />
+    </type>
+    <type name="Magento\Backend\Model\Auth">
+        <plugin name="googleAuthLogin" type="QSS\GoogleAuth\Model\Plugin\Auth" sortOrder="1" />
+    </type>
+    <type name="Magento\User\Model\User">
+        <plugin name="saveGoogleAuthEnabled" type="QSS\GoogleAuth\Model\Plugin\User"/>
+    </type>
+    <preference for="Magento\Backend\Block\System\Account\Edit\Form" type="QSS\GoogleAuth\Block\System\Account\Edit\Form"/>
+    <preference for="Magento\User\Block\User\Edit\Tab\Main" type="QSS\GoogleAuth\Block\User\Edit\Tab\Main"/>
+</config>

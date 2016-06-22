@@ -1,0 +1,18 @@
+<!--@subject Two-factor authentication was enabled for your account.@-->
+<!--@vars {
+"var secret":"Secret",
+"var qrcode":"QRCode"
+} @-->
+<html>
+    <body>
+        <p>
+            {{trans "Here is secret code for two-factor authentication: %secret" secret=$secret}}
+        </p>
+        <p>
+            {{trans "Or you can just scan this QR code with your Google Authenticator app:"}}
+        </p>
+        <p>
+            <img src="{{var qrcode|raw}}"/>
+        </p>
+    </body>
+</html>
