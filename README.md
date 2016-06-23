@@ -25,8 +25,40 @@ Run the following commands in your Magento 2 root folder:
 
 `php bin/magento setup:upgrade`
 
-You have now enabled and installed the module, but in order to make it work, you need configure it first.
+You have now enabled and installed the module, but in order to make it work, you need to configure it first.
 
 ## Configuration
 
-In progress.
+Go to your store's configuration to enable the extension:
+
+![config1](/screenshots/screenshot_config1.png)
+
+![config2](/screenshots/screenshot_config2.png)
+
+![config3](/screenshots/screenshot_config3.png)
+
+![config4](/screenshots/screenshot_config4.png)
+
+Then generate your secret code for Google Authenticator app:
+
+![config5](/screenshots/screenshot_config5.png)
+
+![config6](/screenshots/screenshot_config6.png)
+
+Now new field will appear on login screen, although it won't be required until you enable two factor authentication for given user:
+
+![config7](/screenshots/screenshot_config7.png)
+
+In order to do that, go to your account settings:
+
+![config8](/screenshots/screenshot_config8.png)
+
+![config9](/screenshots/screenshot_config9.png)
+
+This may be done for other users as well, from admin user edit form or via Magento's command line interface:
+                                                                    
+![config10](/screenshots/screenshot_config10.png)
+
+All set, now you will be required to fill in the valid login code while signing into your Magento 2 dashboard:
+
+![config11](/screenshots/screenshot_config11.png)

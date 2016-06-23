@@ -23,7 +23,7 @@
       "registration.php"
     ],
     "psr-4": {
-      "QSS\\GoogleAuth\\": "src"
+      "QSS\\GoogleAuth\\": ""
     }
   }
 }
