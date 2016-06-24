@@ -38,13 +38,14 @@ abstract class AbstractCommand extends Command
     )
     {
         try {
-            $state->getAreaCode();
-        }
-        catch (\Magento\Framework\Exception\LocalizedException $e) {
             $state->setAreaCode('admin');
         }
+        catch (\Magento\Framework\Exception\LocalizedException $e) {}
         $this->userFactory = $userFactory;
-        $this->mailer = $mailerFactory->create();
+        try {
+            $this->mailer = $mailerFactory->create();
+        }
+        catch (\Magento\Framework\Exception\LocalizedException $e) {}
 
         parent::__construct($name);
     }
