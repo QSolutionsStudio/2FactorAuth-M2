@@ -26,9 +26,13 @@ abstract class AbstractCommand extends Command
      */
     protected $userFactory;
     /**
-     * @var \QSS\GoogleAuth\Mailer
+     * @var \QSS\GoogleAuth\MailerFactory
      */
-    protected $mailer;
+    protected $mailerFactory;
+    /**
+     * @var \Magento\Framework\App\State
+     */
+    protected $state;
 
     public function __construct(
         \Magento\User\Model\UserFactory $userFactory,
@@ -37,15 +41,9 @@ abstract class AbstractCommand extends Command
         $name = null
     )
     {
-        try {
-            $state->setAreaCode('admin');
-        }
-        catch (\Magento\Framework\Exception\LocalizedException $e) {}
         $this->userFactory = $userFactory;
-        try {
-            $this->mailer = $mailerFactory->create();
-        }
-        catch (\Magento\Framework\Exception\LocalizedException $e) {}
+        $this->mailerFactory = $mailerFactory;
+        $this->state = $state;
 
         parent::__construct($name);
     }
@@ -66,7 +64,12 @@ abstract class AbstractCommand extends Command
         $output->writeln(sprintf($this->message, $username));
 
         if ($this->sendMail) {
-            $this->mailer->sendSecretToUser($user);
+            try {
+                $this->state->setAreaCode('admin');
+            }
+            catch (\Magento\Framework\Exception\LocalizedException $e) {}
+
+            $this->mailerFactory->create()->sendSecretToUser($user);
         }
     }
 
