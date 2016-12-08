@@ -15,7 +15,7 @@ You will need SSH access to your server.
 
 Run the following commands in your Magento 2 root folder:
 
-`composer config repositories.qssdev git https://wojciechmwnuk@bitbucket.org/qssdev/qss_googleauth.git`
+`composer config repositories.qssdev git https://github.com/QSolutionsStudio/2FactorAuth-M2.git`
 
 (url will change for public version ofc)
 
