@@ -8,5 +8,5 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="QSS_GoogleAuth" setup_version="1.1.0"/>
+    <module name="QSS_GoogleAuth" setup_version="1.2.0"/>
 </config>
