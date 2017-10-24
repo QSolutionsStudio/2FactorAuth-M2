@@ -1,7 +1,7 @@
 <?php
 /**
- * Created by Q-Solutions Studio.
- * Developer: Wojciech M. Wnuk <wojtek@qsolutionsstudio.com>
+ * @category    QSS
+ * @package     QSS\GoogleAuth
  */
 
 namespace QSS\GoogleAuth\Lib\PHPGangsta;

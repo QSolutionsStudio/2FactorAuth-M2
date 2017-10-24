@@ -1,7 +1,9 @@
 <?php
 /**
- * Created by Q-Solutions Studio.
- * Developer: Wojciech M. Wnuk <wojtek@qsolutionsstudio.com>
+ * @category    QSS
+ * @package     QSS\GoogleAuth
+ * @author      Wojciech M. Wnuk <wojtek@qsolutionsstudio.com>
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
 namespace QSS\GoogleAuth\Console\Command;
@@ -26,13 +28,13 @@ abstract class AbstractCommand extends Command
      */
     protected $userFactory;
     /**
-     * @var \QSS\GoogleAuth\MailerFactory
-     */
-    protected $mailerFactory;
-    /**
      * @var \Magento\Framework\App\State
      */
     protected $state;
+    /**
+     * @var \QSS\GoogleAuth\MailerFactory
+     */
+    protected $mailerFactory;
 
     public function __construct(
         \Magento\User\Model\UserFactory $userFactory,
@@ -42,8 +44,8 @@ abstract class AbstractCommand extends Command
     )
     {
         $this->userFactory = $userFactory;
-        $this->mailerFactory = $mailerFactory;
         $this->state = $state;
+        $this->mailerFactory = $mailerFactory;
 
         parent::__construct($name);
     }
@@ -58,6 +60,7 @@ abstract class AbstractCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+
         $username = $input->getArgument($this->argument);
         $user = $this->getUser($username);
         $user->setData($this->attribute, $this->value)->save();
@@ -65,7 +68,7 @@ abstract class AbstractCommand extends Command
 
         if ($this->sendMail) {
             try {
-                $this->state->setAreaCode('admin');
+                $this->state->setAreaCode(\Magento\Framework\App\Area::AREA_ADMINHTML);
             }
             catch (\Magento\Framework\Exception\LocalizedException $e) {}
 
