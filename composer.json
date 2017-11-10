@@ -1,5 +1,5 @@
 {
-  "name": "qssdev/qss_googleauth",
+  "name": "qextensions/google2factor",
   "description": "Google Authenticator two-factor authentication integrated for Magento 2 admin users",
   "require": {
     "php": "~5.5.0|~5.6.0|~7.0.0",
@@ -23,7 +23,7 @@
       "src/registration.php"
     ],
     "psr-4": {
-      "QSS\\GoogleAuth\\": "src"
+      "Qextensions\\Google2factor\\": "src"
     }
   }
 }

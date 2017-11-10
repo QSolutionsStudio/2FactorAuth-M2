@@ -1,12 +1,12 @@
 <?php
 /**
- * @category    QSS
- * @package     QSS\GoogleAuth
+ * @category    Qextensions
+ * @package     Qextensions\Google2factor
  * @author      Wojciech M. Wnuk <wojtek@qsolutionsstudio.com>
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace QSS\GoogleAuth\Block\User\Edit\Tab;
+namespace Qextensions\Google2factor\Block\User\Edit\Tab;
 
 
 class Main extends \Magento\User\Block\User\Edit\Tab\Main
@@ -101,10 +101,10 @@ class Main extends \Magento\User\Block\User\Edit\Tab\Main
         );
 
         $baseFieldset->addField(
-            'googleauth_enabled',
+            'google2factor_enabled',
             'select',
             [
-                'name' => 'googleauth_enabled',
+                'name' => 'google2factor_enabled',
                 'label' => __('Two-factor Authentication'),
                 'title' => __('Two-factor Authentication'),
                 'values' => [['value' => 0, 'label' => __('No')], ['value' => 1, 'label' => __('Yes')]],

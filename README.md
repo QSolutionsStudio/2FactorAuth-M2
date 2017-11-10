@@ -15,13 +15,13 @@ You will need SSH access to your server.
 
 Run the following commands in your Magento 2 root folder:
 
-`composer config repositories.qssdev git https://github.com/QSolutionsStudio/2FactorAuth-M2.git`
+`composer config repositories.qextensions git https://github.com/QSolutionsStudio/2FactorAuth-M2.git`
 
 (url will change for public version ofc)
 
-`composer require qssdev/qss_googleauth`
+`composer require qextensions/google2factor`
 
-`php bin/magento module:enable QSS_GoogleAuth`
+`php bin/magento module:enable Qextensions_Google2factor`
 
 `php bin/magento setup:upgrade`
 

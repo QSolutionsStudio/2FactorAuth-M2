@@ -1,12 +1,12 @@
 <?php
 /**
- * @category    QSS
- * @package     QSS\GoogleAuth
+ * @category    Qextensions
+ * @package     Qextensions\Google2factor
  * @author      Wojciech M. Wnuk <wojtek@qsolutionsstudio.com>
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace QSS\GoogleAuth\Block\System\Config;
+namespace Qextensions\Google2factor\Block\System\Config;
 
 use Magento\Config\Block\System\Config\Form\Field;
 use Magento\Framework\Data\Form\Element\AbstractElement;
@@ -14,11 +14,11 @@ use Magento\Framework\Data\Form\Element\AbstractElement;
 class QRCode extends Field
 {
     /**
-     * @var \QSS\GoogleAuth\Helper\Data
+     * @var \Qextensions\Google2factor\Helper\Data
      */
     protected $helper;
 
-    public function __construct(\Magento\Backend\Block\Template\Context $context, \QSS\GoogleAuth\Helper\Data $helper, array $data = [])
+    public function __construct(\Magento\Backend\Block\Template\Context $context, \Qextensions\Google2factor\Helper\Data $helper, array $data = [])
     {
         $this->helper = $helper;
 

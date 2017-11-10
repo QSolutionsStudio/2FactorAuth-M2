@@ -1,12 +1,12 @@
 <?php
 /**
- * @category    QSS
- * @package     QSS\GoogleAuth
+ * @category    Qextensions
+ * @package     Qextensions\Google2factor
  * @author      Wojciech M. Wnuk <wojtek@qsolutionsstudio.com>
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace QSS\GoogleAuth\Controller\Adminhtml\Generate;
+namespace Qextensions\Google2factor\Controller\Adminhtml\Generate;
 
 
 use Magento\Backend\App\AbstractAction;
@@ -15,7 +15,7 @@ use Magento\Framework\App\ResponseInterface;
 class Index extends AbstractAction
 {
     /**
-     * @var \QSS\GoogleAuth\Helper\Data
+     * @var \Qextensions\Google2factor\Helper\Data
      */
     protected $qssHelper;
     /**
@@ -23,7 +23,7 @@ class Index extends AbstractAction
      */
     protected $config;
     /**
-     * @var \QSS\GoogleAuth\Mailer
+     * @var \Qextensions\Google2factor\Mailer
      */
     protected $mailer;
     /**
@@ -37,11 +37,11 @@ class Index extends AbstractAction
 
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
-        \QSS\GoogleAuth\Helper\Data $helper,
+        \Qextensions\Google2factor\Helper\Data $helper,
         \Magento\Config\Model\ResourceModel\Config $config,
         \Magento\Framework\App\CacheInterface $cacheManager,
         \Magento\Framework\Logger\Monolog $logger,
-        \QSS\GoogleAuth\Mailer $mailer
+        \Qextensions\Google2factor\Mailer $mailer
     )
     {
         $this->qssHelper = $helper;
@@ -64,7 +64,7 @@ class Index extends AbstractAction
         $newSecret = $this->qssHelper->authenticator->createSecret();
         try {
             $this->config->saveConfig(
-                \QSS\GoogleAuth\Helper\Data::SECRET_CONFIG_PATH,
+                \Qextensions\Google2factor\Helper\Data::SECRET_CONFIG_PATH,
                 $newSecret,
                 'default',
                 0

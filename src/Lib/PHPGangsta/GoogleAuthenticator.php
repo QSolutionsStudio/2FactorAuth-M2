@@ -1,10 +1,10 @@
 <?php
 /**
- * @category    QSS
- * @package     QSS\GoogleAuth
+ * @category    Qextensions
+ * @package     Qextensions\Google2factor
  */
 
-namespace QSS\GoogleAuth\Lib\PHPGangsta;
+namespace Qextensions\Google2factor\Lib\PHPGangsta;
 
 
 /**
@@ -118,7 +118,7 @@ class GoogleAuthenticator
      * Set the code length, should be >=6
      *
      * @param int $length
-     * @return \QSS\GoogleAuth\Lib\PHPGangsta\GoogleAuthenticator
+     * @return \Qextensions\Google2factor\Lib\PHPGangsta\GoogleAuthenticator
      */
     public function setCodeLength($length)
     {

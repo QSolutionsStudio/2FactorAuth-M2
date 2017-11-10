@@ -1,18 +1,18 @@
 <?php
 /**
- * @category    QSS
- * @package     QSS\GoogleAuth
+ * @category    Qextensions
+ * @package     Qextensions\Google2factor
  * @author      Wojciech M. Wnuk <wojtek@qsolutionsstudio.com>
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace QSS\GoogleAuth\App\Action\Plugin;
+namespace Qextensions\Google2factor\App\Action\Plugin;
 
 
 class Authentication
 {
     /**
-     * @var \QSS\GoogleAuth\Helper\Data
+     * @var \Qextensions\Google2factor\Helper\Data
      */
     protected $helper;
     /**
@@ -34,7 +34,7 @@ class Authentication
 
     public function __construct(
         \Magento\Backend\Model\Auth $auth,
-        \QSS\GoogleAuth\Helper\Data $helper,
+        \Qextensions\Google2factor\Helper\Data $helper,
         \Magento\Framework\App\Request\Http $request,
         \Magento\Framework\Session\SessionManager $sessionManager,
         \Magento\User\Model\UserFactory $userFactory
@@ -52,7 +52,7 @@ class Authentication
         if (!$this->auth->isLoggedIn() && $this->helper->isEnabled() && $this->request->isPost()) {
             $username = $this->request->getParam('login')['username'];
 
-            if (!$this->userHasGoogleAuthEnabled($username)) {
+            if (!$this->userHasGoogle2factorEnabled($username)) {
                 $this->session->setPreventLogin(false);
                 return;
             }
@@ -72,7 +72,7 @@ class Authentication
      * @param $username
      * @return bool
      */
-    protected function userHasGoogleAuthEnabled($username)
+    protected function userHasGoogle2factorEnabled($username)
     {
         return boolval($this->userFactory->create()->loadByUsername($username)->getGoogleauthEnabled());
     }

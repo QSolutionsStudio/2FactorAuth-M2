@@ -1,12 +1,12 @@
 <?php
 /**
- * @category    QSS
- * @package     QSS\GoogleAuth
+ * @category    Qextensions
+ * @package     Qextensions\Google2factor
  * @author      Wojciech M. Wnuk <wojtek@qsolutionsstudio.com>
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace QSS\GoogleAuth\Setup;
+namespace Qextensions\Google2factor\Setup;
 
 
 use Magento\Framework\Setup\ModuleContextInterface;
@@ -31,7 +31,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
 
         $installer->getConnection()->addColumn(
             $installer->getTable('admin_user'),
-            'googleauth_enabled',
+            'google2factor_enabled',
             [
                 'type' => \Magento\Framework\DB\Ddl\Table::TYPE_SMALLINT,
                 'nullable' => true,

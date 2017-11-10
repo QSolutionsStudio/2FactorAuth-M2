@@ -1,20 +1,20 @@
 <?php
 /**
- * @category    QSS
- * @package     QSS\GoogleAuth
+ * @category    Qextensions
+ * @package     Qextensions\Google2factor
  * @author      Wojciech M. Wnuk <wojtek@qsolutionsstudio.com>
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace QSS\GoogleAuth;
+namespace Qextensions\Google2factor;
 
 
 class Mailer
 {
-    const EMAIL_NEW_SECRET = 'qss_googleauth_email_new_secret';
-    const EMAIL_USER = 'qss_googleauth_email_user';
+    const EMAIL_NEW_SECRET = 'google2factor_email_new_secret';
+    const EMAIL_USER = 'google2factor_email_user';
     /**
-     * @var \QSS\GoogleAuth\Helper\Data
+     * @var \Qextensions\Google2factor\Helper\Data
      */
     protected $qssHelper;
     /**
@@ -35,7 +35,7 @@ class Mailer
     protected $authSession;
 
     public function __construct(
-        \QSS\GoogleAuth\Helper\Data $helper,
+        \Qextensions\Google2factor\Helper\Data $helper,
         \Magento\Framework\Mail\Template\TransportBuilder $transportBuilder,
         \Magento\User\Model\ResourceModel\User\Collection $collection,
         \Magento\Backend\Model\Auth\Session $authSession
@@ -49,7 +49,7 @@ class Mailer
         $this->recipients = [];
 
         foreach ($this->collection as $user) {
-            if ($user->getIsActive() && $user->getData('googleauth_enabled')) {
+            if ($user->getIsActive() && $user->getData('google2factor_enabled')) {
                 $this->recipients[$user->getName()] = $user->getEmail();
             }
         }

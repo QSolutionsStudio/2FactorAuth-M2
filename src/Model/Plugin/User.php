@@ -1,12 +1,12 @@
 <?php
 /**
- * @category    QSS
- * @package     QSS\GoogleAuth
+ * @category    Qextensions
+ * @package     Qextensions\Google2factor
  * @author      Wojciech M. Wnuk <wojtek@qsolutionsstudio.com>
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace QSS\GoogleAuth\Model\Plugin;
+namespace Qextensions\Google2factor\Model\Plugin;
 
 class User
 {
@@ -15,13 +15,13 @@ class User
      */
     protected $request;
     /**
-     * @var \QSS\GoogleAuth\Mailer
+     * @var \Qextensions\Google2factor\Mailer
      */
     protected $mailer;
 
     public function __construct(
         \Magento\Framework\App\Request\Http $request,
-        \QSS\GoogleAuth\Mailer $mailer
+        \Qextensions\Google2factor\Mailer $mailer
     )
     {
         $this->request = $request;
@@ -34,11 +34,11 @@ class User
     )
     {
         if ($this->request->isPost() && $this->isAllowed()) {
-            $googleauthEnabled = $this->request->getParam('googleauth_enabled');
+            $google2factorEnabled = $this->request->getParam('google2factor_enabled');
 
-            $subject->setData('googleauth_enabled', $googleauthEnabled);
+            $subject->setData('google2factor_enabled', $google2factorEnabled);
 
-            if ($subject->dataHasChangedFor('googleauth_enabled') && boolval($googleauthEnabled)) {
+            if ($subject->dataHasChangedFor('google2factor_enabled') && boolval($google2factorEnabled)) {
                 $shouldSendMail = true;
             }
         }

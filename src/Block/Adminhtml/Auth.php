@@ -1,12 +1,12 @@
 <?php
 /**
- * @category    QSS
- * @package     QSS\GoogleAuth
+ * @category    Qextensions
+ * @package     Qextensions\Google2factor
  * @author      Wojciech M. Wnuk <wojtek@qsolutionsstudio.com>
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace QSS\GoogleAuth\Block\Adminhtml;
+namespace Qextensions\Google2factor\Block\Adminhtml;
 
 
 use Magento\Framework\View\Element\AbstractBlock;
@@ -14,13 +14,13 @@ use Magento\Framework\View\Element\AbstractBlock;
 class Auth extends AbstractBlock
 {
     /**
-     * @var \QSS\GoogleAuth\Helper\Data
+     * @var \Qextensions\Google2factor\Helper\Data
      */
     protected $helper;
 
     public function __construct(
         \Magento\Framework\View\Element\Context $context,
-        \QSS\GoogleAuth\Helper\Data $helper,
+        \Qextensions\Google2factor\Helper\Data $helper,
         array $data = []
     )
     {
